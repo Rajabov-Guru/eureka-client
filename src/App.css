@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Calligraffitti';
+    src: local('Calligraffitti'), url(assets/fonts/Calligraffitti-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Lobster';
+    src: local('Lobster'), url(assets/fonts/Lobster-Regular.ttf) format('truetype');
+}
+
