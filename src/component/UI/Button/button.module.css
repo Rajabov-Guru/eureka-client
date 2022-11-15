@@ -1,25 +1,28 @@
-.button{
-    border: 3px solid white;
+.Button{
     font-family: Calligraffitti;
+    box-sizing: border-box;
+    border: 3px solid white;
     border-radius: 10px;
     padding: 10px 50px;
     background:transparent;
+
+    text-align: center;
+    text-decoration: none;
     color:white;
+
     display: flex;
     justify-content: center;
     align-content: center;
+
     transition: 0.1s;
     cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    box-sizing: border-box;
 }
 
-.full_width{
+.Full_width{
     width: 100%;
     padding: 15px 0px;
 }
 
-.button:active{
+.Button:active{
     transform: scale(0.9);
 }

@@ -1,9 +1,15 @@
 import React, { FC } from "react";
 import classnames from "classnames";
 import styles from "./input.module.css";
-import { IInput } from "../../../types/main";
 
-const Input: FC<IInput> = ({ type, value, placeholder, onChange }) => {
+interface InputProps {
+  type?: string;
+  placeholder?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent) => void;
+}
+
+const Input: FC<InputProps> = ({ type, value, placeholder, onChange }) => {
   return (
     <input
       type={type ? type : "text"}

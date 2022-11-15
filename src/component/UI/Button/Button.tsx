@@ -1,21 +1,18 @@
 import classnames from "classnames";
 import React, { FC } from "react";
 import styles from "./button.module.css";
-import { IChildren } from "../../../types/main";
 
-export interface IButton extends IChildren {
-  fullWidth?: boolean;
-}
-
-interface ButtonProps extends IButton {
+export interface ButtonProps {
   handleClick?: () => void;
+  fullWidth?: boolean;
+  children?: React.ReactNode;
 }
 
 const Button: FC<ButtonProps> = ({ children, handleClick, fullWidth }) => {
   return (
     <div
       onClick={handleClick}
-      className={classnames(styles.button, fullWidth && styles.full_width)}
+      className={classnames(styles.Button, fullWidth && styles.Button)}
     >
       {children}
     </div>

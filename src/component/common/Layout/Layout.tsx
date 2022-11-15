@@ -1,14 +1,14 @@
 import React, { FC } from "react";
 import mainBackground from "../../../assets/images/chalkboard2.jpg";
 import styles from "./layout.module.css";
-import { IChildren } from "../../../types/main";
 import classnames from "classnames";
 
-interface LayoutProps extends IChildren {
+interface LayoutProps {
   centered?: boolean;
+  children: React.ReactNode;
 }
 
-const Index: FC<LayoutProps> = ({ children, centered }) => {
+const Layout: FC<LayoutProps> = ({ children, centered }) => {
   return (
     <div
       style={{ backgroundImage: `url(${mainBackground})` }}
@@ -19,4 +19,4 @@ const Index: FC<LayoutProps> = ({ children, centered }) => {
   );
 };
 
-export default Index;
+export default Layout;

@@ -4,19 +4,19 @@ import styles from "./profile.module.css";
 import { Link } from "react-router-dom";
 import { paths } from "../../routing/routes";
 
-export interface ProfileProps {
+interface ProfileProps {
   small?: boolean;
   horiz?: boolean;
 }
 
 const ProfileCard: FC<ProfileProps> = ({ small, horiz }) => {
   return (
-    <div className={classnames(styles.card, horiz && styles.card_horiz)}>
+    <div className={classnames(styles.Card, horiz && styles.Card_horiz)}>
       <Link to={paths.MY_BOARDS}>
         <div
           className={classnames(
-            styles.card_avatar,
-            small && styles.card_small_avatar
+            styles.Card_avatar,
+            small && styles.Card_small_avatar
           )}
         >
           <img
@@ -28,8 +28,8 @@ const ProfileCard: FC<ProfileProps> = ({ small, horiz }) => {
       </Link>
       <div
         className={classnames(
-          styles.card_nick,
-          small && styles.card_small_nick
+          styles.Card_nick,
+          small && styles.Card_small_nick
         )}
       >
         John Doe

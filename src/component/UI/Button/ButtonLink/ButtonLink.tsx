@@ -2,17 +2,17 @@ import React, { FC } from "react";
 import classnames from "classnames";
 import styles from "../button.module.css";
 import { Link } from "react-router-dom";
-import { IButton } from "../index";
+import { ButtonProps } from "../Button";
 
-export interface ILink extends IButton {
+export interface LinkProps extends ButtonProps {
   to: string;
 }
 
-const ButtonLink: FC<ILink> = ({ to, children, fullWidth }) => {
+const ButtonLink: FC<LinkProps> = ({ to, children, fullWidth }) => {
   return (
     <Link
       to={to}
-      className={classnames(styles.button, fullWidth && styles.full_width)}
+      className={classnames(styles.Button, fullWidth && styles.Full_width)}
     >
       {children}
     </Link>

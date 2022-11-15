@@ -1,12 +1,10 @@
 import classnames from "classnames";
 import React, { FC } from "react";
 import styles from "./board.module.css";
-import { IChildren } from "../../types/main";
 import { Link } from "react-router-dom";
-import { paths } from "../../routing/routes";
-import { ILink } from "../UI/Button/ButtonLink";
+import { LinkProps } from "../UI/Button/ButtonLink/ButtonLink";
 
-const BoardCard: FC<ILink> = ({ children, to }) => {
+const BoardCard: FC<LinkProps> = ({ children, to }) => {
   return (
     <Link to={to} className={classnames(styles.card)}>
       {children}

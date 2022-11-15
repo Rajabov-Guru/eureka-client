@@ -1,11 +1,11 @@
 import React from "react";
-import BoardCard from "../component/BoardCard";
+import BoardCard from "../component/BoardCard/BoardCard";
 import { paths } from "../routing/routes";
-import Grid from "../component/common/Grid";
-import Stack from "../component/common/Stack";
-import ProfileCard from "../component/ProfileCard";
-import BoardLayout from "../component/common/Layout/BoardLayout";
-import Button from "../component/UI/Button";
+import Grid from "../component/common/Grid/Grid";
+import Stack from "../component/common/Stack/Stack";
+import ProfileCard from "../component/ProfileCard/ProfileCard";
+import BoardLayout from "../component/common/Layout/BoardLayout/BoardLayout";
+import Button from "../component/UI/Button/Button";
 
 const Profile = () => {
   return (
@@ -15,7 +15,7 @@ const Profile = () => {
           <ProfileCard />
         </div>
         <Grid rows={5}>
-          <BoardCard to={`${paths.MY_BOARDS}/dvdsvjn`}>Board #1</BoardCard>
+          s s<BoardCard to={`${paths.MY_BOARDS}/dvdsvjn`}>Board #1</BoardCard>
           <BoardCard to={`${paths.MY_BOARDS}/dvdsvjn`}>Board #1</BoardCard>
           <Button fullWidth>
             <Stack>

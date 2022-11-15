@@ -1,8 +1,8 @@
 import React from "react";
-import Layout from "../component/common/Layout";
-import ButtonLink from "../component/UI/Button/ButtonLink";
+import Layout from "../component/common/Layout/Layout";
+import ButtonLink from "../component/UI/Button/ButtonLink/ButtonLink";
 import { paths } from "../routing/routes";
-import Stack from "../component/common/Stack";
+import Stack from "../component/common/Stack/Stack";
 
 const Welcome = () => {
   return (

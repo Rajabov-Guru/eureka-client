@@ -1,10 +1,10 @@
 import React from "react";
-import Grid from "../component/common/Grid";
-import Card from "../component/UI/Card";
-import BoardLayout from "../component/common/Layout/BoardLayout";
-import ProfileCard from "../component/ProfileCard";
-import Stack from "../component/common/Stack";
-import Button from "../component/UI/Button";
+import Grid from "../component/common/Grid/Grid";
+import Card from "../component/UI/Card/Card";
+import BoardLayout from "../component/common/Layout/BoardLayout/BoardLayout";
+import ProfileCard from "../component/ProfileCard/ProfileCard";
+import Stack from "../component/common/Stack/Stack";
+import Button from "../component/UI/Button/Button";
 
 const titleStyles: React.CSSProperties = {
   padding: 30,

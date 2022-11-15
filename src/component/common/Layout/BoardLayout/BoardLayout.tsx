@@ -1,8 +1,7 @@
-import React, { FC } from "react";
+import React, { FC, PropsWithChildren } from "react";
 import mainBackground from "../../../../assets/images/chalkboard2.jpg";
-import { IChildren } from "../../../../types/main";
 
-const BoardLayout: FC<IChildren> = ({ children }) => {
+const BoardLayout: FC<PropsWithChildren<any>> = ({ children }) => {
   return (
     <div
       style={{

@@ -1,8 +1,8 @@
 import React from "react";
-import Layout from "../component/common/Layout";
-import Input from "../component/UI/Input";
-import Stack from "../component/common/Stack";
-import Button from "../component/UI/Button";
+import Layout from "../component/common/Layout/Layout";
+import Input from "../component/UI/Input/Input";
+import Stack from "../component/common/Stack/Stack";
+import Button from "../component/UI/Button/Button";
 import { Link } from "react-router-dom";
 import { paths } from "../routing/routes";
 

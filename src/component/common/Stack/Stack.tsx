@@ -1,13 +1,13 @@
 import React, { FC } from "react";
-import { IChildren } from "../../../types/main";
 import styles from "./stack.module.css";
 import classnames from "classnames";
 
-export interface IStack extends IChildren {
+export interface StackProps {
   spacing?: number;
+  children?: React.ReactNode;
 }
 
-const Stack: FC<IStack> = ({ children, spacing }) => {
+const Stack: FC<StackProps> = ({ children, spacing }) => {
   return (
     <div
       style={{ gap: spacing ? spacing * 20 : 20 }}
