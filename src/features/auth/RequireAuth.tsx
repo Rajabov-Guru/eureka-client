@@ -4,6 +4,7 @@ import { selectIsAuth, setCredentials } from "./authSlice";
 import { Navigate, Outlet } from "react-router-dom";
 import { paths } from "../../routing/routes";
 import { useCheckAuthQuery } from "./authApiSlice";
+import Loading from "../../component/Loading/Loading";
 
 const RequireAuth = () => {
   const dispatch = useAppDispatch();
@@ -20,7 +21,7 @@ const RequireAuth = () => {
   }, [res]);
 
   return isLoading ? (
-    <p>Loading...</p>
+    <Loading />
   ) : res?.accessToken || tokenFromStorage ? (
     <Outlet />
   ) : (

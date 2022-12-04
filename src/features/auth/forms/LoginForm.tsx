@@ -1,23 +1,15 @@
 import React, { FC } from "react";
 import Input from "../../../component/Input/Input";
 import Button from "../../../component/Button/Button";
+import { FormProps, Inputs } from "./RegistrationForm";
 import { useAppDispatch } from "../../../app/hooks";
-import { useRegistrationMutation } from "../authApiSlice";
-import { setCredentials } from "../authSlice";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { useLoginMutation } from "../authApiSlice";
+import { setCredentials } from "../authSlice";
 import { ErrorMessage } from "@hookform/error-message";
 import ErrorReply from "../../../component/Error/ErrorReply";
 
-export interface FormProps {
-  postSubmit: () => void;
-}
-
-export type Inputs = {
-  nickname: string;
-  password: string;
-};
-
-const RegistrationForm: FC<FormProps> = ({ postSubmit }) => {
+const LoginForm: FC<FormProps> = ({ postSubmit }) => {
   const dispatch = useAppDispatch();
 
   const {
@@ -26,21 +18,20 @@ const RegistrationForm: FC<FormProps> = ({ postSubmit }) => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const [regis, { isLoading }] = useRegistrationMutation();
+  const [login, { isLoading }] = useLoginMutation();
 
-  const handleRegistration: SubmitHandler<Inputs> = async (data) => {
+  const handleLogin: SubmitHandler<Inputs> = async (data) => {
     try {
-      const userData = await regis(data).unwrap();
+      const userData = await login(data).unwrap();
       dispatch(setCredentials(userData));
       postSubmit();
     } catch (error) {
       console.log(error);
     }
   };
-
   return (
     <>
-      <h1 style={{ fontSize: 30, letterSpacing: 2 }}>Registration</h1>
+      <h1 style={{ fontSize: 30, letterSpacing: 2 }}>Login</h1>
       <div>
         <Controller
           name="nickname"
@@ -69,11 +60,11 @@ const RegistrationForm: FC<FormProps> = ({ postSubmit }) => {
           render={({ message }) => <ErrorReply message={message} />}
         />
       </div>
-      <Button fullWidth handleClick={handleSubmit(handleRegistration)}>
+      <Button fullWidth handleClick={handleSubmit(handleLogin)}>
         {isLoading ? "Loading..." : "OK"}
       </Button>
     </>
   );
 };
 
-export default RegistrationForm;
+export default LoginForm;

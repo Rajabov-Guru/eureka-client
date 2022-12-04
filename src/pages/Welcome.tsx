@@ -17,9 +17,11 @@ const Welcome = () => {
           great IDEAS!
         </h1>
         <div style={{ display: "flex", gap: 40, justifyContent: "center" }}>
-          <ButtonLink to={paths.REGISTRATION}>Register</ButtonLink>
           {!isAuth ? (
-            <ButtonLink to={paths.LOGIN}>Login</ButtonLink>
+            <>
+              <ButtonLink to={paths.REGISTRATION}>Register</ButtonLink>
+              <ButtonLink to={paths.LOGIN}>Login</ButtonLink>
+            </>
           ) : (
             <ButtonLink to={paths.MY_BOARDS}>Profile</ButtonLink>
           )}

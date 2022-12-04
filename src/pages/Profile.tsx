@@ -14,6 +14,7 @@ import {
 import { useGetBoardsByIdQuery } from "../features/boards/boardsApiSlice";
 import { useLogoutMutation } from "../features/auth/authApiSlice";
 import { useNavigate } from "react-router-dom";
+import Loading from "../component/Loading/Loading";
 
 const Profile = () => {
   const dispatch = useAppDispatch();
@@ -32,6 +33,8 @@ const Profile = () => {
     navigate(paths.WELCOME, { replace: true });
   };
 
+  if (isLoading) return <Loading />;
+
   return (
     <BoardLayout>
       <Stack spacing={1}>
@@ -40,22 +43,16 @@ const Profile = () => {
           <Button handleClick={logoutHandler}>Logout</Button>
         </div>
         <Grid rows={5}>
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : (
-            <>
-              {boards.map((board) => (
-                <BoardCard key={board.id} to={`${paths.MY_BOARDS}/${board.id}`}>
-                  {board.name}
-                </BoardCard>
-              ))}
-              <Button fullWidth>
-                <Stack>
-                  <div style={{ fontSize: 30 }}>+</div>
-                </Stack>
-              </Button>
-            </>
-          )}
+          {boards.map((board) => (
+            <BoardCard key={board.id} to={`${paths.MY_BOARDS}/${board.id}`}>
+              {board.name}
+            </BoardCard>
+          ))}
+          <Button fullWidth>
+            <Stack>
+              <div style={{ fontSize: 30 }}>+</div>
+            </Stack>
+          </Button>
         </Grid>
       </Stack>
     </BoardLayout>
