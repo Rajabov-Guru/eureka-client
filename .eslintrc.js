@@ -16,5 +16,7 @@ module.exports = {
     "react/jsx-no-useless-fragment": ["error"],
     "react/no-unknown-property": ["error"],
     "react/no-unescaped-entities": [0],
+    "@typescript-eslint/no-invalid-void-type": [0],
+    "@typescript-eslint/consistent-type-definitions": [0],
   },
 };

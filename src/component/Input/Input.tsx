@@ -6,7 +6,7 @@ interface InputProps {
   type?: string;
   placeholder?: string;
   value?: string;
-  onChange?: (e: React.ChangeEvent) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const Input: FC<InputProps> = ({ type, value, placeholder, onChange }) => {
@@ -14,7 +14,7 @@ const Input: FC<InputProps> = ({ type, value, placeholder, onChange }) => {
     <input
       type={type ? type : "text"}
       placeholder={placeholder ? placeholder : ""}
-      value={value ? value : undefined}
+      value={value ? value : ""}
       onChange={onChange}
       className={classnames(styles.input)}
     />

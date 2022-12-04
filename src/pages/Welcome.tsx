@@ -1,10 +1,13 @@
 import React from "react";
-import Layout from "../component/common/Layout/Layout";
-import ButtonLink from "../component/UI/Button/ButtonLink/ButtonLink";
+import Layout from "../component/Layout/Layout";
+import ButtonLink from "../component/Button/ButtonLink/ButtonLink";
 import { paths } from "../routing/routes";
-import Stack from "../component/common/Stack/Stack";
+import Stack from "../component/Stack/Stack";
+import { useAppSelector } from "../app/hooks";
+import { selectIsAuth } from "../features/auth/authSlice";
 
 const Welcome = () => {
+  const isAuth = useAppSelector(selectIsAuth);
   return (
     <Layout centered>
       <Stack spacing={3}>
@@ -15,8 +18,11 @@ const Welcome = () => {
         </h1>
         <div style={{ display: "flex", gap: 40, justifyContent: "center" }}>
           <ButtonLink to={paths.REGISTRATION}>Register</ButtonLink>
-          <ButtonLink to={paths.LOGIN}>Login</ButtonLink>
-          <ButtonLink to={paths.MY_BOARDS}>Profile</ButtonLink>
+          {!isAuth ? (
+            <ButtonLink to={paths.LOGIN}>Login</ButtonLink>
+          ) : (
+            <ButtonLink to={paths.MY_BOARDS}>Profile</ButtonLink>
+          )}
         </div>
       </Stack>
     </Layout>

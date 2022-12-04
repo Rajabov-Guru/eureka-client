@@ -3,7 +3,7 @@ import Registration from "../pages/Registration";
 import Login from "../pages/Login";
 import myBoards from "../pages/Profile";
 import Board from "../pages/Board";
-import { IRoute } from "../types/main";
+import { Route } from "../types/main";
 
 export const paths = {
   WELCOME: "/",
@@ -12,7 +12,7 @@ export const paths = {
   MY_BOARDS: "/profile",
 };
 
-export const routes: IRoute[] = [
+export const publicRoutes: Route[] = [
   {
     route: paths.WELCOME,
     Component: Welcome,
@@ -25,12 +25,15 @@ export const routes: IRoute[] = [
     route: paths.LOGIN,
     Component: Login,
   },
+];
+
+export const protectedRoutes: Route[] = [
   {
     route: paths.MY_BOARDS,
     Component: myBoards,
   },
   {
-    route: `${paths.MY_BOARDS}/:board`,
+    route: `${paths.MY_BOARDS}/:boardId`,
     Component: Board,
   },
 ];

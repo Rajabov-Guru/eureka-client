@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import mainBackground from "../../../assets/images/chalkboard2.jpg";
+import mainBackground from "../../assets/images/chalkboard2.jpg";
 import styles from "./layout.module.css";
 import classnames from "classnames";
 

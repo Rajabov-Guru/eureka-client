@@ -1,10 +1,14 @@
 import React from "react";
-import Grid from "../component/common/Grid/Grid";
-import Card from "../component/UI/Card/Card";
-import BoardLayout from "../component/common/Layout/BoardLayout/BoardLayout";
-import ProfileCard from "../component/ProfileCard/ProfileCard";
-import Stack from "../component/common/Stack/Stack";
-import Button from "../component/UI/Button/Button";
+import Grid from "../component/Grid/Grid";
+import Card from "../features/ideas/Card/Card";
+import BoardLayout from "../component/Layout/BoardLayout/BoardLayout";
+import ProfileCard from "../features/user/ProfileCard/ProfileCard";
+import Stack from "../component/Stack/Stack";
+import Button from "../component/Button/Button";
+import { useAppSelector } from "../app/hooks";
+import { selectCurrentUser } from "../features/auth/authSlice";
+import { useParams } from "react-router-dom";
+import { useGetIdeasByBoardQuery } from "../features/ideas/boardsApiSlice";
 
 const titleStyles: React.CSSProperties = {
   padding: 30,
@@ -18,21 +22,28 @@ const titleStyles: React.CSSProperties = {
 };
 
 const Board = () => {
+  const { boardId } = useParams();
+  const user = useAppSelector(selectCurrentUser);
+  // const board = useGetBoardsByIdQuery(boardId);
+
+  const {
+    data: ideas,
+    isLoading,
+    isSuccess,
+  } = useGetIdeasByBoardQuery(Number(boardId));
+
   return (
     <BoardLayout>
       <div style={titleStyles}>
         <h1>Board #1</h1>
-        <ProfileCard small horiz />
+        {user && <ProfileCard user={user} small horiz />}
       </div>
       <Grid rows={3}>
-        <Card
-          title="Idea #1"
-          content="fsdvb vhjbfdv fhvbfv hdefvbfde vhredfbvhefbv"
-        />
-        <Card
-          title="Idea #2"
-          content="fsdvb vhjbfdv fhvbfv hdefvbfde vhredfbvhefbv"
-        />
+        {isLoading && <p>Loading...</p>}
+        {isSuccess &&
+          ideas.map((idea) => (
+            <Card key={idea.id} title={idea.title} content={idea.text} />
+          ))}
         <Button fullWidth>
           <Stack>
             <div style={{ fontSize: 30 }}>+</div>

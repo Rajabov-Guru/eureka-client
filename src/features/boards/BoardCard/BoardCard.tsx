@@ -2,7 +2,7 @@ import classnames from "classnames";
 import React, { FC } from "react";
 import styles from "./board.module.css";
 import { Link } from "react-router-dom";
-import { LinkProps } from "../UI/Button/ButtonLink/ButtonLink";
+import { LinkProps } from "../../../component/Button/ButtonLink/ButtonLink";
 
 const BoardCard: FC<LinkProps> = ({ children, to }) => {
   return (
