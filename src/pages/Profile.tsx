@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import BoardCard from "../features/boards/BoardCard/BoardCard";
 import { paths } from "../routing/routes";
 import Grid from "../component/Grid/Grid";
@@ -15,16 +15,19 @@ import { useGetBoardsByIdQuery } from "../features/boards/boardsApiSlice";
 import { useLogoutMutation } from "../features/auth/authApiSlice";
 import { useNavigate } from "react-router-dom";
 import Loading from "../component/Loading/Loading";
+import AddBoardForm from "../features/boards/forms/AddBoardForm";
+import { User } from "../types/main";
 
 const Profile = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const user = useAppSelector(selectCurrentUser);
+  const [isAdding, setIsAdding] = useState<boolean>(false);
 
-  const { data: boards = [], isLoading } = useGetBoardsByIdQuery(
-    user?.id || 10
-  );
+  const user: User = useAppSelector(selectCurrentUser) as User;
+
+  const { data: boards = [], isLoading } = useGetBoardsByIdQuery(user?.id);
+
   const [logout] = useLogoutMutation();
 
   const logoutHandler = async () => {
@@ -48,11 +51,15 @@ const Profile = () => {
               {board.name}
             </BoardCard>
           ))}
-          <Button fullWidth>
-            <Stack>
-              <div style={{ fontSize: 30 }}>+</div>
-            </Stack>
-          </Button>
+          {!isAdding ? (
+            <Button fullWidth handleClick={() => setIsAdding(true)}>
+              <Stack>
+                <div style={{ fontSize: 30 }}>+</div>
+              </Stack>
+            </Button>
+          ) : (
+            <AddBoardForm postSubmit={() => setIsAdding(false)} />
+          )}
         </Grid>
       </Stack>
     </BoardLayout>

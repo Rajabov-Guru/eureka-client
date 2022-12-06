@@ -26,11 +26,11 @@ const RegistrationForm: FC<FormProps> = ({ postSubmit }) => {
     formState: { errors },
   } = useForm<Inputs>();
 
-  const [regis, { isLoading }] = useRegistrationMutation();
+  const [register, { isLoading }] = useRegistrationMutation();
 
   const handleRegistration: SubmitHandler<Inputs> = async (data) => {
     try {
-      const userData = await regis(data).unwrap();
+      const userData = await register(data).unwrap();
       dispatch(setCredentials(userData));
       postSubmit();
     } catch (error) {

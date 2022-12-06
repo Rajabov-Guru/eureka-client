@@ -1,7 +1,7 @@
 import { apiSlice } from "../../app/api/apiSlice";
 import { Idea } from "../../types/main";
 
-export const boardsApiSlice = apiSlice.injectEndpoints({
+export const ideasApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getIdeasByBoard: builder.query<Idea[], number>({
       query: (boardId) => ({
@@ -11,4 +11,4 @@ export const boardsApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useGetIdeasByBoardQuery } = boardsApiSlice;
+export const { useGetIdeasByBoardQuery } = ideasApiSlice;

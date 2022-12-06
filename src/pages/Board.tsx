@@ -8,7 +8,7 @@ import Button from "../component/Button/Button";
 import { useAppSelector } from "../app/hooks";
 import { selectCurrentUser } from "../features/auth/authSlice";
 import { useParams } from "react-router-dom";
-import { useGetIdeasByBoardQuery } from "../features/ideas/boardsApiSlice";
+import { useGetIdeasByBoardQuery } from "../features/ideas/ideasApiSlice";
 
 const titleStyles: React.CSSProperties = {
   padding: 30,

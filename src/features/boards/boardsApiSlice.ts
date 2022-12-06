@@ -7,9 +7,16 @@ export const boardsApiSlice = apiSlice.injectEndpoints({
       query: (userId) => ({
         url: `/boards/user/${userId}`,
       }),
-      keepUnusedDataFor: 5,
+    }),
+
+    createBoard: builder.mutation<BoardItem, BoardItem>({
+      query: (data) => ({
+        url: "/boards",
+        method: "POST",
+        body: data,
+      }),
     }),
   }),
 });
 
-export const { useGetBoardsByIdQuery } = boardsApiSlice;
+export const { useGetBoardsByIdQuery, useCreateBoardMutation } = boardsApiSlice;
