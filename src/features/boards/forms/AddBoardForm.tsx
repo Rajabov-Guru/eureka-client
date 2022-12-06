@@ -45,9 +45,14 @@ const AddBoardForm: FC<FormProps> = ({ postSubmit }) => {
         name="name"
         render={({ message }) => <ErrorReply message={message} />}
       />
-      <Button fullWidth handleClick={handleSubmit(submit)}>
-        {isLoading ? "Loading..." : "OK"}
-      </Button>
+      <div style={{ display: "flex", gap: "10px" }}>
+        <Button fullWidth handleClick={handleSubmit(submit)}>
+          {isLoading ? "Loading..." : "OK"}
+        </Button>
+        <Button fullWidth handleClick={postSubmit}>
+          Cancel
+        </Button>
+      </div>
     </Stack>
   );
 };

@@ -7,6 +7,7 @@ export const boardsApiSlice = apiSlice.injectEndpoints({
       query: (userId) => ({
         url: `/boards/user/${userId}`,
       }),
+      providesTags: ["Boards"],
     }),
 
     createBoard: builder.mutation<BoardItem, BoardItem>({
@@ -15,6 +16,7 @@ export const boardsApiSlice = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["Boards"],
     }),
   }),
 });

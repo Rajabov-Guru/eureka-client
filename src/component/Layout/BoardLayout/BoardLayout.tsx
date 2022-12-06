@@ -7,7 +7,7 @@ const BoardLayout: FC<PropsWithChildren<{ children: React.ReactNode }>> = ({
   return (
     <div
       style={{
-        padding: "30px 0 100px 0",
+        padding: "30px 0 500px 0",
         backgroundImage: `url(${mainBackground})`,
         backgroundRepeat: "repeat",
       }}

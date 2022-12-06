@@ -6,12 +6,14 @@ interface initialStateType {
   user: User | null;
   token: string | null;
   isAuth: boolean;
+  isLoading: boolean;
 }
 
 const initialState: initialStateType = {
   user: null,
   token: null,
   isAuth: false,
+  isLoading: false,
 };
 
 const authSlice = createSlice({
@@ -31,12 +33,17 @@ const authSlice = createSlice({
       state.isAuth = false;
       localStorage.removeItem("eureka-token");
     },
+    setIsLoading: (state, action: PayloadAction<boolean>) => {
+      state.isLoading = action.payload;
+    },
   },
 });
 
 export const selectCurrentUser = (state: RootState) => state.auth.user;
 export const selectToken = (state: RootState) => state.auth.token;
 export const selectIsAuth = (state: RootState) => state.auth.isAuth;
+export const selectIsLoading = (state: RootState) => state.auth.isLoading;
 
-export const { setCredentials, removeCredentials } = authSlice.actions;
+export const { setIsLoading, setCredentials, removeCredentials } =
+  authSlice.actions;
 export default authSlice.reducer;

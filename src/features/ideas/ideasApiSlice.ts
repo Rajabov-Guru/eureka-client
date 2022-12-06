@@ -5,7 +5,7 @@ export const ideasApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getIdeasByBoard: builder.query<Idea[], number>({
       query: (boardId) => ({
-        url: `/ideas/${boardId}`,
+        url: `/ideas/board/${boardId}`,
       }),
     }),
   }),
